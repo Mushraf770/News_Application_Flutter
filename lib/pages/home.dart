@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 import 'package:newsdash/models/article_model.dart';
 import 'package:newsdash/models/category_model.dart';
 import 'package:newsdash/models/slider_model.dart';
@@ -10,7 +13,6 @@ import 'package:newsdash/pages/category_news.dart';
 import 'package:newsdash/services/data.dart';
 import 'package:newsdash/services/news.dart';
 import 'package:newsdash/services/slider_data.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -76,7 +78,11 @@ class _HomeState extends State<Home> {
         elevation: 0.0,
       ),
       body: isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(
+              child: SpinKitFadingCircle(
+              color: Colors.deepPurple.shade800,
+              size: 50,
+            ))
           : SingleChildScrollView(
               child: Container(
                 child: Column(
@@ -335,14 +341,15 @@ class BlogTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ArticleView(
-                blogUrl: url,
-                // blogTitle: title,
-                // blogImage: imageUrl,
-              ),
-            ),);
+          context,
+          MaterialPageRoute(
+            builder: (context) => ArticleView(
+              blogUrl: url,
+              // blogTitle: title,
+              // blogImage: imageUrl,
+            ),
+          ),
+        );
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 15),

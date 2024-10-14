@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsdash/pages/landing_page.dart';
+import 'package:newsdash/view/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
-      home: LandingPage(),
+      home: SplashScreen(),
     );
   }
 }
