@@ -1,4 +1,4 @@
-# newsdash
+# Newsdash
 
 A new Flutter project.
 
